@@ -1,4 +1,4 @@
-# 🖼️ WebFiltros - Plataforma Web de Filtros de Imagem (Computação Gráfica)
+# WebFiltros - Plataforma Web de Filtros de Imagem (Computação Gráfica)
 
 Este projeto é uma aplicação web simples que permite ao usuário fazer upload de uma imagem e aplicar diferentes **filtros de Computação Gráfica** utilizando a biblioteca **Pillow (PIL)**.
 
@@ -15,7 +15,6 @@ Este projeto é uma aplicação web simples que permite ao usuário fazer upload
 - Exibição lado a lado da imagem original e da processada
 - Botão para download da imagem processada
 - Pré-visualização da imagem antes de aplicar o filtro
-- Botão para remover imagens da tela
 - Estrutura modular do código
 
 ---
@@ -31,5 +30,19 @@ Este projeto é uma aplicação web simples que permite ao usuário fazer upload
 
 ---
 
-## 📁 Estrutura do Projeto
+
+## ⚙️ Como Executar com Docker
+
+- Clone o repositório
+
+git clone https://github.com/seu-usuario/image_filter_app.git
+cd image_filter_app
+
+- Construa e execute com Docker Compose
+
+docker-compose up --build
+
+- Acesse no navegador
+
+http://127.0.0.1:5000
 
