@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Plataforma de Filtros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Plataforma de Filtros</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="imagem_salva" value="{{ imagem_oficial }}">
+            <div class="form-group">
+                <label for="imagem">Selecione uma imagem:</label>
+                <input type="file" name="imagem" id="imagem" accept=".jpg, .png" required>
+            </div>
+            <div class="form-group">
+                <label for="filtro">Escolha um filtro:</label>
+                <select name="filtro" id="filtro" required>
+                    <option value="">Selecione</option>
+                    <option value="negativo">Negativo</option>
+                    <option value="mediana">Mediana</option>
+                    <option value="gaussiano">Gaussiano</option>
+                    <option value="pretoebranco">Preto e Branco (Threshold)</option>
+                </select>
+            </div>
+            <button type="submit">Aplicar Filtro</button>
+        </form>
+
+        <div id="preview-container">
+            <img id="preview-image" src="#" alt="Pré-visualização" style="display: none;">
+        </div>
+
+        {% if original and processed %}
+        <div class="images">
+            <div>
+                <h3>Original</h3>
+                <img src="{{ url_for('static', filename=original.split('static/')[1]) }}" alt="Imagem Original">
+            </div>
+            <div>
+                <h3>Processada</h3>
+                <img src="{{ url_for('static', filename=processed.split('static/')[1]) }}" alt="Imagem Processada">
+                <div class="download-container">
+                    <a href="{{ processed }}" download class="btn-download">Baixar imagem processada</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        const input = document.getElementById('imagem');
+        const previewImage = document.getElementById('preview-image');
+
+        input.addEventListener('change', () => {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = e => {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
