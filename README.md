@@ -35,8 +35,7 @@ Este projeto é uma aplicação web simples que permite ao usuário fazer upload
 
 - Clone o repositório
 
-git clone https://github.com/seu-usuario/image_filter_app.git
-cd image_filter_app
+git clone [https://github.com/seu-usuario/image_filter_app.git](https://github.com/fer-oliveiraa/WebFiltros.git)
 
 - Construa e execute com Docker Compose
 
